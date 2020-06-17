@@ -1,0 +1,67 @@
+﻿@model IEnumerable<LoginCRUD.Models.Empleado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gestion de empleados</h2>
+<hr/>
+<h5>Usted como administrador tiene permiso para registrar o actualizar datos</h5>
+
+<p>
+    @Html.ActionLink("Registrar o Actualizar", "AddOrEdit")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Username)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Password)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PrimerApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SegundoApellido)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AreaTrabajo)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Username)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Password)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PrimerApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SegundoApellido)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AreaTrabajo)
+        </td>
+        <td>
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>
+
+<h4>
+    <a>-></a> @Html.ActionLink("Cerrar Sesion", "Login", "Account")
+</h4>
